@@ -4,6 +4,7 @@ import copy from 'rollup-plugin-copy';
 
 export default defineConfig({
   build: {
+    emptyOutDir: false, // 默认为true，这将导致拷贝过来的文件被删除
     lib: {
       entry: './lib/main.ts',
       name: 'EzDescriptor',
@@ -19,7 +20,7 @@ export default defineConfig({
       verbose: true,
       targets: [
         {
-          src: './lib/main.ts',
+          src: './lib/**/*.ts',
           dest: './dist',
         }
       ]
