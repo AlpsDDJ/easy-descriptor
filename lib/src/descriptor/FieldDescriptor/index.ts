@@ -132,7 +132,7 @@ function setFieldProperty<T extends EzBaseModel<T>>(constructor: BaseModelConstr
 }
 
 export const Field: FieldDecorator = (() => {
-  const fn: FieldDecorator = <T extends EzBaseModel<T>>(label?: string | PartialFieldOption<T>, option?: PartialFieldOption<T>): PropertyDecorator => {
+  const fn: FieldDecorator = <T extends EzBaseModel<T>>(label?: string | PartialFieldOption<T>, option?: PartialFieldOption<T>) => {
     // 初始化一个临时的字段配置对象
     let optionTemp: FieldOption = cloneDeep(option || {})
 

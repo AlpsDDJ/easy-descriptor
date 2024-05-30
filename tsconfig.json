@@ -7,10 +7,10 @@
     "skipLibCheck": true,
 
     /* Bundler mode */
-    "moduleResolution": "Bundler",
+    "moduleResolution": "Node",
     "allowImportingTsExtensions": true,
-//        "experimentalDecorators": true,
-//        "emitDecoratorMetadata": true, // 可选，用于生成装饰器元数据
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true, // 可选，用于生成装饰器元数据
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,

@@ -2,8 +2,7 @@ import { EzBaseModel, setModelState } from '../../EzModel'
 import { BaseModelConstructor, DataKey, ModelParams } from '../../../types'
 
 export const Model = <T extends EzBaseModel<T>>(parmas?: DataKey | ModelParams<T>) => {
-  return <Class extends BaseModelConstructor>(value: Class, context: ClassDecoratorContext): BaseModelConstructor<T> => {
-    console.log('context ---> ', context)
+  return <Class extends BaseModelConstructor>(value: Class): BaseModelConstructor<T> => {
     if (!parmas) {
       parmas = value.name
     }

@@ -92,12 +92,11 @@ type DataTypeDecoratorType = (dataType?: FormDataType, inputType?: InputType) =>
 // }
 
 export interface BaseModelConstructor<T extends EzBaseModel = EzBaseModel> extends Function {
-  name: any;
   new (...args: any[]): T
   modelKey: DataKey
 }
 
-interface FieldDecorator<T extends EzBaseModel<T> = EzBaseModel> {
+export interface FieldDecorator<T extends EzBaseModel<T> = EzBaseModel> {
   <T extends EzBaseModel<T>>(label?: string | PartialFieldOption<T>, option?: PartialFieldOption<T>): PropertyDecorator
   Hidden: HiddenDecoratorType
   Dict: DictDecoratorType

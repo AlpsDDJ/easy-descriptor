@@ -7,18 +7,32 @@
     "dist",
     "index.d.ts"
   ],
-  "main": "./dist/counter.umd.cjs",
-  "module": "./dist/counter.js",
-  "types": "./index.d.ts",
-  "exports": {
-    "types": "./index.d.ts",
-    "import": "./dist/counter.js",
-    "require": "./dist/counter.umd.cjs"
-  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build"
   },
+  "main": "./dist/easy-descriptor.umd.cjs",
+  "module": "./dist/easy-descriptor.js",
+  "types": "./index.d.ts",
+  "exports": {
+    "types": "./index.d.ts",
+    "import": "./dist/easy-descriptor.js",
+    "require": "./dist/easy-descriptor.umd.cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlpsDDJ/easy-descriptor.git"
+  },
+  "keywords": [
+    "easy-descriptor",
+    "decorator"
+  ],
+  "bugs": {
+    "url": "https://github.com/AlpsDDJ/easy-descriptor/issues"
+  },
+  "homepage": "https://github.com/AlpsDDJ/easy-descriptor",
+  "author": "AlpsDDJ",
+  "license": "ISC",
   "devDependencies": {
     "@types/lodash-es": "^4.17.12",
     "lodash-es": "^4.17.21",

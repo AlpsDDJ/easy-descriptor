@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import {defineConfig} from 'vite'
 import dts from 'vite-plugin-dts';
 import copy from 'rollup-plugin-copy';
 

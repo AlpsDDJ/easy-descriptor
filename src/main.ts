@@ -1,6 +1,5 @@
 import './style.css'
 import typescriptLogo from './typescript.svg'
-import { setupCounter } from '../lib/main'
 import {useModelOptions} from "../lib/src/EzModel.ts";
 import {SysUser} from "./SysUser.ts";
 
@@ -21,8 +20,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </p>
   </div>
 `
-
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
 
 const userOpts = useModelOptions(SysUser)
 console.log('userOpts --> ', userOpts)
