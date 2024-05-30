@@ -1,6 +1,6 @@
 import {defineConfig} from 'vite'
 import dts from 'vite-plugin-dts';
-import copy from 'rollup-plugin-copy';
+// import copy from 'rollup-plugin-copy';
 
 export default defineConfig({
   build: {
@@ -16,14 +16,14 @@ export default defineConfig({
       outDir: './dist',
       include: ['./lib'],
     }),
-    copy({
-      verbose: true,
-      targets: [
-        {
-          src: './lib/**/*.ts',
-          dest: './dist',
-        }
-      ]
-    }),
+    // copy({
+    //   verbose: true,
+    //   targets: [
+    //     {
+    //       src: './lib/**/*.ts',
+    //       dest: './dist',
+    //     }
+    //   ]
+    // }),
   ]
 })
