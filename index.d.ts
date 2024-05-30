@@ -1,1 +1,5 @@
-export function setupCounter(element: HTMLButtonElement): void
+import type * as easyDescriptorTypes from "./lib/types";
+
+export default {
+    ...easyDescriptorTypes
+}

@@ -1,5 +1,5 @@
-import { FormDataTypeEnum, FormTypeEnum, InputTypeEnum } from '../src/enums/EEnum.ts'
-import { EzBaseModel } from "../src/EzModel";
+import { FormDataTypeEnum, FormTypeEnum, InputTypeEnum } from '@lib/src/enums/EEnum.ts'
+import { EzBaseModel } from "@lib/src/EzModel";
 
 // export declare type EzModelCommOptions<T extends EzModelCommOptions<T>, TB extends ExtFieldOption<T>> = {
 //     // getOptions: () => EzModelOptions<T, TB>;

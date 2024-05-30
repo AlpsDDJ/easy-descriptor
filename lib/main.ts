@@ -1,3 +1,9 @@
-import {useModelOptions} from "./src/EzModel.ts";
+import * as EzModel from "./src/EzModel";
+import * as Descriptors from "./src/descriptor";
+import * as DescriptorEnums from "./src/enums/EEnum";
 
-export {useModelOptions}
+export default {
+    ...EzModel,
+    ...Descriptors,
+    ...DescriptorEnums
+}

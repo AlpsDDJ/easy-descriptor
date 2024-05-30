@@ -1,11 +1,10 @@
 {
   "name": "easy-descriptor",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "files": [
-    "dist",
-    "index.d.ts"
+    "dist"
   ],
   "scripts": {
     "dev": "vite",
@@ -13,11 +12,12 @@
   },
   "main": "./dist/easy-descriptor.umd.cjs",
   "module": "./dist/easy-descriptor.js",
-  "types": "./index.d.ts",
   "exports": {
-    "types": "./index.d.ts",
-    "import": "./dist/easy-descriptor.js",
-    "require": "./dist/easy-descriptor.umd.cjs"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/easy-descriptor.js",
+      "require": "./dist/easy-descriptor.umd.cjs"
+    }
   },
   "repository": {
     "type": "git",

@@ -1,12 +1,13 @@
 import {defineConfig} from 'vite'
+import { resolve } from 'path'
 import dts from 'vite-plugin-dts';
-// import copy from 'rollup-plugin-copy';
+import copy from 'rollup-plugin-copy';
 
 export default defineConfig({
   build: {
-    emptyOutDir: false, // 默认为true，这将导致拷贝过来的文件被删除
+    // emptyOutDir: false, // 默认为true，这将导致拷贝过来的文件被删除
     lib: {
-      entry: './lib/main.ts',
+      entry: resolve(__dirname, 'lib/main.ts'),
       name: 'EzDescriptor',
       fileName: 'easy-descriptor'
     }
@@ -16,14 +17,19 @@ export default defineConfig({
       outDir: './dist',
       include: ['./lib'],
     }),
-    // copy({
-    //   verbose: true,
-    //   targets: [
-    //     {
-    //       src: './lib/**/*.ts',
-    //       dest: './dist',
-    //     }
-    //   ]
-    // }),
-  ]
+    copy({
+      verbose: true,
+      targets: [
+        {
+          src: './package.json',
+          dest: './dist',
+        }
+      ]
+    }),
+  ],
+  resolve: {
+    alias: {
+      '@lib': resolve(__dirname, "lib")
+    }
+  }
 })

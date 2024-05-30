@@ -1,5 +1,5 @@
 import type { BaseModelConstructor, DataKey, ExtFieldOption, EzModelOptions, EzModelPool, FieldOption,
-  IBaseModel, ModelParams, TreeField } from '../types'
+  IBaseModel, ModelParams, TreeField } from '@lib/types'
 import { assign, cloneDeep, snakeCase, uniqueId } from 'lodash-es'
 
 const EZ_MODEL_POOL: EzModelPool = {}
