@@ -5,11 +5,12 @@ import copy from 'rollup-plugin-copy';
 
 export default defineConfig({
     build: {
-        emptyOutDir: false, // 默认为true，这将导致拷贝过来的文件被删除
+        // emptyOutDir: false, // 默认为true，这将导致拷贝过来的文件被删除
         lib: {
             entry: resolve(__dirname, 'src/main.ts'),
             name: 'EzDescriptor',
-            fileName: 'easy-descriptor'
+            formats: ['es', 'umd'],
+            fileName: 'index',
         },
         // rollupOptions: {
         //     external: ['lodash', 'lodash-es'],
