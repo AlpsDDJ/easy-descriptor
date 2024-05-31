@@ -1,4 +1,4 @@
-import EzBaseModel, {
+import type {
   BaseModelConstructor,
   DataKey,
   DataTypeDecoratorType,
@@ -14,6 +14,7 @@ import EzBaseModel, {
   InputType,
   PartialFieldOption
 } from '../../types/EasyDescriptorTypes'
+import EzBaseModel from "../../types/EasyDescriptorTypes";
 import { cloneDeep } from 'lodash-es'
 import { getModelState, setModelState } from '../../hooks/useModelOptions'
 import { FormDataTypeEnum, InputTypeEnum } from '../../enums/EEnum'

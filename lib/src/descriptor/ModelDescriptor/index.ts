@@ -1,4 +1,5 @@
-import EzBaseModel, {BaseModelConstructor, DataKey, ModelParams} from "../../types/EasyDescriptorTypes";
+import type {BaseModelConstructor, DataKey, ModelParams} from "../../types/EasyDescriptorTypes";
+import EzBaseModel from "../../types/EasyDescriptorTypes";
 import {setModelState} from "../../hooks/useModelOptions";
 
 export const Model = <T extends EzBaseModel<T>>(parmas?: DataKey | ModelParams<T>) => {
