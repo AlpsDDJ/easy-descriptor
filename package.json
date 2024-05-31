@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "type": "module",
   "files": [
-    "dist"
+    "dist/easy-descriptor.js",
+    "dist/easy-descriptor.umd.cjs",
+    "dist/types",
+    "dist/enums"
   ],
   "scripts": {
     "dev": "vite",
@@ -12,9 +15,9 @@
   },
   "main": "./dist/easy-descriptor.umd.cjs",
   "module": "./dist/easy-descriptor.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/src/types/EasyDescriptorTypes.d.ts",
   "exports": {
-    "types": "./dist/index.d.ts",
+    "types": "./dist/src/types/EasyDescriptorTypes.d.ts",
     "import": "./dist/easy-descriptor.js",
     "require": "./dist/easy-descriptor.umd.cjs"
   },

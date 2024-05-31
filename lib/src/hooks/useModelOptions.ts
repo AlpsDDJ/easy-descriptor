@@ -1,14 +1,12 @@
 import type {
     BaseModelConstructor,
-    DataKey,
-    ExtFieldOption,
     EzModelOptions,
     EzModelPool,
-    FieldOption,
     IBaseModel,
     ModelParams,
     TreeField
-} from '../index'
+} from '../types/EasyDescriptorTypes'
+import EzBaseModel from "../types/EasyDescriptorTypes";
 import {assign, cloneDeep, snakeCase, uniqueId} from 'lodash-es'
 
 const EZ_MODEL_POOL: EzModelPool = {}
@@ -16,10 +14,6 @@ export const getEzModelPool = () => {
     return cloneDeep(EZ_MODEL_POOL)
 }
 
-export class EzBaseModel<T extends EzBaseModel<T> = EzBaseModel<any>, TB extends ExtFieldOption = FieldOption> implements IBaseModel<FieldOption> {
-    declare $TB: TB
-    declare static modelKey: DataKey
-}
 
 export const useModelOptions = <T extends EzBaseModel<T>>(instance: BaseModelConstructor<T>) => {
     return EZ_MODEL_POOL[instance.modelKey] as EzModelOptions<T>

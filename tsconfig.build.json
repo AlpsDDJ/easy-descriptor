@@ -6,5 +6,5 @@
     "emitDeclarationOnly": true, // 只生成类型文件
     "declarationDir": "dist" // 类型文件的导出目录
   },
-    "include": ["lib"] // 编译目标仅为 src 文件夹下的文件
+  "include": ["lib"] // 编译目标仅为 src 文件夹下的文件
 }

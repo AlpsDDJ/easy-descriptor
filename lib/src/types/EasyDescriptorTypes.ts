@@ -1,11 +1,18 @@
-import { FormDataTypeEnum, FormTypeEnum, InputTypeEnum } from './src/enums/EEnum'
-import { EzBaseModel } from "./src/EzModel";
+import { FormDataTypeEnum, FormTypeEnum, InputTypeEnum } from '../enums/EEnum'
 
 export type DataKey = string | symbol
 
 export type IBaseModel<TB = any> = {
   $TB: TB
 }
+
+
+class EzBaseModel<T extends EzBaseModel<T> = EzBaseModel<any>, TB extends ExtFieldOption = FieldOption> implements IBaseModel<FieldOption> {
+  declare $TB: TB
+  declare static modelKey: DataKey
+}
+export default EzBaseModel
+
 export type EnumTypes<T extends string | number> = keyof { [k in T]: unknown }
 
 export declare type FormData<T extends EzBaseModel<T>> = Record<string, unknown> & {

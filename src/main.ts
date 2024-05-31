@@ -1,6 +1,6 @@
 import './style.css'
 import typescriptLogo from './typescript.svg'
-import {useModelOptions} from "../lib/src/EzModel.ts";
+import {useModelOptions} from "../lib/src/hooks/EzModel.ts";
 import {SysUser} from "./SysUser.ts";
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `

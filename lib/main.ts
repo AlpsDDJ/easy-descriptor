@@ -1,13 +1,12 @@
-import {useModelOptions, setModelState, getModelState, EzBaseModel, getEzModelPool} from "./src/EzModel";
+import {useModelOptions} from "./src/hooks/useModelOptions";
 import {Field, Model} from "./src/descriptor";
 import {FormDataTypeEnum, FormTypeEnum, InputTypeEnum} from "./src/enums/EEnum";
+// import EzBaseModel from "./src/types/EasyDescriptorTypes";
+export type * from "./src/types/EasyDescriptorTypes";
 
 export {
     useModelOptions,
-    setModelState,
-    getModelState,
-    EzBaseModel,
-    getEzModelPool,
+    // EzBaseModel,
     Field,
     Model,
     FormDataTypeEnum,
