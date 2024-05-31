@@ -26,7 +26,7 @@ export default defineConfig({
     plugins: [
         dts({
             outDir: './dist',
-            include: ['./src/types.ts'],
+            include: ['./src'],
         }),
         copy({
             // verbose: true,
