@@ -14,10 +14,9 @@ import type {
   InputType,
   PartialFieldOption
 } from '../../types/EasyDescriptorTypes'
-import EzBaseModel from "../../types/EasyDescriptorTypes";
+import EzBaseModel, {FormDataTypeEnum, InputTypeEnum} from "../../types/EasyDescriptorTypes";
 import { cloneDeep } from 'lodash-es'
 import { getModelState, setModelState } from '../../hooks/useModelOptions'
-import { FormDataTypeEnum, InputTypeEnum } from '../../enums/EEnum'
 
 /**
  * 定义一个隐藏装饰器，用于标记对象属性是否隐藏以及如何处理隐藏状态。

@@ -1,6 +1,6 @@
 import {defineConfig} from 'vite'
 import {resolve} from 'path'
-// import dts from 'vite-plugin-dts';
+import dts from 'vite-plugin-dts';
 import copy from 'rollup-plugin-copy';
 
 export default defineConfig({
@@ -23,10 +23,10 @@ export default defineConfig({
         outDir: "dist", // 打包后存放的目录文件
     },
     plugins: [
-        // dts({
-        //     outDir: './dist',
-        //     include: ['./lib'],
-        // }),
+        dts({
+            outDir: './dist',
+            include: ['./lib/src/types/EasyDescriptorTypes.ts'],
+        }),
         copy({
             verbose: true,
             targets: [

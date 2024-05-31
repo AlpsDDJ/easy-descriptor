@@ -15,6 +15,7 @@
   },
   "main": "./dist/easy-descriptor.umd.cjs",
   "module": "./dist/easy-descriptor.js",
+  "typings": "./dist/src/types/EasyDescriptorTypes.d.ts",
   "exports": {
     ".": {
       "import": "./dist/easy-descriptor.js",
