@@ -16,8 +16,10 @@
   "main": "./dist/easy-descriptor.umd.cjs",
   "module": "./dist/easy-descriptor.js",
   "exports": {
-    "import": "./dist/easy-descriptor.js",
-    "require": "./dist/easy-descriptor.umd.cjs"
+    ".": {
+      "import": "./dist/easy-descriptor.js",
+      "require": "./dist/easy-descriptor.umd.cjs"
+    }
   },
   "repository": {
     "type": "git",
