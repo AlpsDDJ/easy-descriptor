@@ -11,15 +11,15 @@ export default defineConfig({
             name: 'EzDescriptor',
             fileName: 'easy-descriptor'
         },
-        rollupOptions: {
-            external: ['lodash', 'lodash-es'],
-            output: {
-                globals: {
-                    'lodash': 'lodash',
-                    'lodash-es': 'lodash-es'
-                }
-            }
-        },
+        // rollupOptions: {
+        //     external: ['lodash', 'lodash-es'],
+        //     output: {
+        //         globals: {
+        //             'lodash': 'lodash',
+        //             'lodash-es': 'lodash-es'
+        //         }
+        //     }
+        // },
         outDir: "dist", // 打包后存放的目录文件
     },
     plugins: [

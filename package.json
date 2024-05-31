@@ -3,20 +3,22 @@
   "version": "0.0.1-beta.6",
   "type": "module",
   "files": [
-    "dist"
+    "dist/**/*.*"
   ],
   "scripts": {
     "dev": "vite",
     "build": "vite build && tsc -p tsconfig.build.json",
     "build:push": "vite build && tsc -p tsconfig.build.json && yalc publish --push"
   },
-  "main": "./dist/easy-descriptor.umd.cjs",
-  "module": "./dist/easy-descriptor.js",
-  "typings": "./dist/types.d.ts",
+  "main": "easy-descriptor.umd.cjs",
+  "module": "easy-descriptor.js",
   "exports": {
     ".": {
-      "import": "./dist/easy-descriptor.js",
-      "require": "./dist/easy-descriptor.umd.cjs"
+      "import": "easy-descriptor.js",
+      "require": "easy-descriptor.umd.cjs"
+    },
+    "types": {
+      "types": "types.d.ts"
     }
   },
   "repository": {
