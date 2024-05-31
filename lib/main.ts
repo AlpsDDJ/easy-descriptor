@@ -1,9 +1,21 @@
-import * as EzModel from "./src/EzModel";
-import * as Descriptors from "./src/descriptor";
-import * as DescriptorEnums from "./src/enums/EEnum";
+import {useModelOptions, setModelState, getModelState, EzBaseModel, getEzModelPool} from "./src/EzModel";
+import {Field, Model} from "./src/descriptor";
+import {FormDataTypeEnum, FormTypeEnum, InputTypeEnum} from "./src/enums/EEnum";
 
-export default {
-    ...EzModel,
-    ...Descriptors,
-    ...DescriptorEnums
+export {
+    useModelOptions,
+    setModelState,
+    getModelState,
+    EzBaseModel,
+    getEzModelPool,
+    Field,
+    Model,
+    FormDataTypeEnum,
+    FormTypeEnum,
+    InputTypeEnum
 }
+
+// export * from "./src/EzModel";
+// export * from "./src/descriptor";
+// export * from "./src/enums/EEnum";
+// export * from './types'

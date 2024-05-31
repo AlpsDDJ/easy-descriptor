@@ -1,10 +1,5 @@
-import { FormDataTypeEnum, FormTypeEnum, InputTypeEnum } from '@lib/src/enums/EEnum.ts'
-import { EzBaseModel } from "@lib/src/EzModel";
-
-// export declare type EzModelCommOptions<T extends EzModelCommOptions<T>, TB extends ExtFieldOption<T>> = {
-//     // getOptions: () => EzModelOptions<T, TB>;
-//     // getModelKey: () => string;
-// }
+import { FormDataTypeEnum, FormTypeEnum, InputTypeEnum } from './src/enums/EEnum'
+import { EzBaseModel } from "./src/EzModel";
 
 export type DataKey = string | symbol
 
@@ -20,10 +15,10 @@ export declare type FormType = EnumTypes<FormTypeEnum>
 export declare type FormDataType = EnumTypes<FormDataTypeEnum>
 export declare type InputType = EnumTypes<InputTypeEnum>
 
-type FieldAttrHandler = <T extends EzBaseModel<T>, P = any>(formData: FormData<T>, formType?: FormType) => P
+export type FieldAttrHandler = <T extends EzBaseModel<T>, P = any>(formData: FormData<T>, formType?: FormType) => P
 
-type FieldHiddenType = boolean | ('list' | 'form' | 'query' | 'edit' | 'add' | 'view')[]
-type FieldDisabledType = boolean | ('form' | 'edit' | 'add' | 'editTable')[]
+export type FieldHiddenType = boolean | ('list' | 'form' | 'query' | 'edit' | 'add' | 'view')[]
+export type FieldDisabledType = boolean | ('form' | 'edit' | 'add' | 'editTable')[]
 
 type ModelStateRequiredAttr<T extends EzBaseModel<T>, P> = { [key in keyof Required<T>]: P } | Record<string, P>
 type ModelStatePartialAttr<T extends EzBaseModel<T>, P> = { [key in keyof Partial<T>]: P } | Record<string, P>
@@ -54,20 +49,20 @@ export type FieldOption<T = Record<string, any>> = ExtFieldOption & Partial<T>
 
 export type PartialFieldOption<T extends EzBaseModel> = Partial<T['$TB']>
 
-type TreeField<T> = {
+export type TreeField<T extends EzBaseModel<T>> = {
   pid?: 'parentId' | keyof ModelField<T>
   children?: 'children' | keyof ModelField<T>
 }
 
 export declare type ModelParams<T extends EzBaseModel<T>> = Partial<EzModelOptions<T>>
 
-export declare type EzModelOptions<T extends EzBaseModel<T>, TB extends ExtFieldOption<T> = any> = {
+export declare type EzModelOptions<T extends EzBaseModel<T> = EzBaseModel> = {
   modelKey?: DataKey
   name: string
   desc?: string
   api: string
   perms: string | boolean
-  fields: ModelStatePartialAttr<T, FieldOption<T, TB>>
+  fields: ModelStatePartialAttr<T, FieldOption<T>>
   tree?: true | TreeField<T>
 }
 
@@ -76,20 +71,16 @@ export declare type EzModelPool = {
 }
 
 // type FieldOption<T extends InternalRowData> = FieldOpt<T> & DataTableColumn<T>
-type DictDecoratorType = (dict?: string) => PropertyDecorator
-type HiddenDecoratorType = <T extends EzBaseModel<T> = EzBaseModel<T>, P = any>(
+export declare type DictDecoratorType = (dict?: string) => PropertyDecorator
+export declare type HiddenDecoratorType = <T extends EzBaseModel<T> = EzBaseModel>(
   hiddenType?: FieldHiddenType,
-  hiddenHandler?: FieldAttrHandler<T, P>
+  hiddenHandler?: FieldAttrHandler
 ) => PropertyDecorator
-type DisabledDecoratorType = <T extends EzBaseModel<T> = EzBaseModel<T>, P = any>(
+export declare type DisabledDecoratorType = <T extends EzBaseModel<T> = EzBaseModel>(
   disabledType?: FieldDisabledType,
-  disabledHandler?: FieldAttrHandler<T, P>
+  disabledHandler?: FieldAttrHandler
 ) => PropertyDecorator
-type DataTypeDecoratorType = (dataType?: FormDataType, inputType?: InputType) => PropertyDecorator
-// type RuleTypeDecoratorType = (rule: EFormItemRule | Array<EFormItemRule>) => PropertyDecorator
-// interface FieldDecoratorType {
-//   <T extends IBaseModel>(label?: string | PartialFieldOption<T>, option?: PartialFieldOption<T>): PropertyDecorator
-// }
+export declare type DataTypeDecoratorType = (dataType?: FormDataType, inputType?: InputType) => PropertyDecorator
 
 export interface BaseModelConstructor<T extends EzBaseModel = EzBaseModel> extends Function {
   new (...args: any[]): T

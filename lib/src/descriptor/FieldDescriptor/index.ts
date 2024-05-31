@@ -13,10 +13,10 @@ import {
   HiddenDecoratorType,
   InputType,
   PartialFieldOption
-} from '@lib/types'
+} from '../../../index'
 import { cloneDeep } from 'lodash-es'
-import { EzBaseModel, getModelState, setModelState } from '@lib/src/EzModel'
-import { FormDataTypeEnum, InputTypeEnum } from '@lib/src/enums/EEnum'
+import { EzBaseModel, getModelState, setModelState } from '../../EzModel'
+import { FormDataTypeEnum, InputTypeEnum } from '../../enums/EEnum'
 
 /**
  * 定义一个隐藏装饰器，用于标记对象属性是否隐藏以及如何处理隐藏状态。

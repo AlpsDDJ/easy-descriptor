@@ -1,5 +1,5 @@
-import { EzBaseModel, setModelState } from '@lib/src/EzModel'
-import { BaseModelConstructor, DataKey, ModelParams } from '@lib/types'
+import { EzBaseModel, setModelState } from '../../EzModel'
+import { BaseModelConstructor, DataKey, ModelParams } from '../../../index'
 
 export const Model = <T extends EzBaseModel<T>>(parmas?: DataKey | ModelParams<T>) => {
   return <Class extends BaseModelConstructor>(value: Class): BaseModelConstructor<T> => {
@@ -11,9 +11,9 @@ export const Model = <T extends EzBaseModel<T>>(parmas?: DataKey | ModelParams<T
         name: parmas.toString()
       })
     } else {
-      setModelState(value, parmas as ModelParams<T>)
+      setModelState(value, parmas as any)
     }
 
-    return value
+    return value as unknown as BaseModelConstructor<T>
   }
 }

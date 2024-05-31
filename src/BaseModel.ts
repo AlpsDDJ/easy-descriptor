@@ -1,6 +1,6 @@
 // import {EzBaseModel} from "@/descriptor";
 
-import {FieldOption} from "../lib/types";
+import {FieldOption} from "../lib/types/types.ts";
 import {EzBaseModel} from "../lib/src/EzModel.ts";
 import {Field} from "../lib/src/descriptor/FieldDescriptor";
 
