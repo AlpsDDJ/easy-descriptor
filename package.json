@@ -17,7 +17,6 @@
   "module": "./dist/easy-descriptor.js",
   "types": "./dist/src/types/EasyDescriptorTypes.d.ts",
   "exports": {
-    "types": "./dist/src/types/EasyDescriptorTypes.d.ts",
     "import": "./dist/easy-descriptor.js",
     "require": "./dist/easy-descriptor.umd.cjs"
   },
