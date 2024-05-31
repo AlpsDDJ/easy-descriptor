@@ -5,8 +5,8 @@
   "files": [
     "dist/easy-descriptor.js",
     "dist/easy-descriptor.umd.cjs",
-    "dist/types",
-    "dist/enums"
+    "dist/src/types",
+    "dist/src/enums"
   ],
   "scripts": {
     "dev": "vite",
