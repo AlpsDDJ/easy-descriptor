@@ -7,7 +7,7 @@ export default defineConfig({
     build: {
         emptyOutDir: false, // 默认为true，这将导致拷贝过来的文件被删除
         lib: {
-            entry: resolve(__dirname, 'lib/main.ts'),
+            entry: resolve(__dirname, 'src/main.ts'),
             name: 'EzDescriptor',
             fileName: 'easy-descriptor'
         },
@@ -25,20 +25,20 @@ export default defineConfig({
     plugins: [
         dts({
             outDir: './dist',
-            include: ['./lib/src/types/EasyDescriptorTypes.ts'],
+            include: ['./src/types.ts'],
         }),
         copy({
-            verbose: true,
-            targets: [
-                // {
-                //     src: './package.json',
-                //     dest: './dist',
-                // },
-                // {
-                //     src: './lib/types/index.d.ts',
-                //     dest: './dist/types',
-                // }
-            ]
+            // verbose: true,
+            // targets: [
+            //     // {
+            //     //     src: './package.json',
+            //     //     dest: './dist',
+            //     // },
+            //     // {
+            //     //     src: './lib/types/index.d.ts',
+            //     //     dest: './dist/types',
+            //     // }
+            // ]
         }),
     ],
 })
