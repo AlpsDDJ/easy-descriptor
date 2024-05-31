@@ -1,6 +1,6 @@
 {
   "name": "easy-descriptor",
-  "version": "0.0.1-beta.8",
+  "version": "1.0.0",
   "type": "module",
   "files": [
     "dist/**/*.*"
@@ -10,13 +10,17 @@
     "build": "vite build && tsc -p tsconfig.build.json",
     "build:push": "vite build && tsc -p tsconfig.build.json && yalc publish --push"
   },
-  "types": "./dist/types.d.ts",
+  "types": "./dist/main.d.ts",
   "main": "./dist/index.umd.cjs",
   "module": "./dist/index.js",
   "exports": {
     ".": {
+      "require": {
+        "types": "./dist/main.d.ts",
+        "default": "./dist/index.umd.cjs"
+      },
       "import": {
-        "types": "./dist/types.d.ts",
+        "types": "./dist/main.d.ts",
         "default": "./dist/index.js"
       },
       "default": "./dist/index.js"
