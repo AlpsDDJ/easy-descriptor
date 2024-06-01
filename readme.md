@@ -61,8 +61,8 @@ export const jsonSchema = useModelOptions(ModelTest)
 console.log('jsonSchema = ', jsonSchema)
 
 ```
-```
-userJsonSchema: {"fields":{"id":{"hidden":true,"label":"ID","key":"id"},"createTime":{"label":"创建时间","key":"createTime"},"name":{"email":"123","label":"名称","key":"name"},"age":{"email":"sd","label":"年龄","hidden":false,"labelWidth":120,"key":"age"}},"perms":"sys-user","api":"sys/user","name":"SysUser"}
+```javascript
+userJsonSchema = {"fields":{"id":{"hidden":true,"label":"ID","key":"id"},"createTime":{"label":"创建时间","key":"createTime"},"name":{"email":"123","label":"名称","key":"name"},"age":{"email":"sd","label":"年龄","hidden":false,"labelWidth":120,"key":"age"}},"perms":"sys-user","api":"sys/user","name":"SysUser"}
 ```
 
 ## @Axios 装饰器示例
