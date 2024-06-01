@@ -1,5 +1,7 @@
 import {FormDataTypeEnum, FormTypeEnum, InputTypeEnum} from "../enums";
 
+export type * from '../descriptor/AxiosDescriptor/types'
+
 export type DataKey = string | symbol
 
 export type IBaseModel<TB = any> = {

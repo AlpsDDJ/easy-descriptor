@@ -14,9 +14,10 @@ export default defineConfig({
             fileName: (format, entryName) => `${entryName}.${format}.js`,
         },
         rollupOptions: {
-            external: ['lodash', 'lodash-es'],
+            external: ['lodash', 'lodash-es', 'axios'],
             output: {
                 globals: {
+                    'axios': 'axios',
                     'lodash': 'lodash',
                     'lodash-es': 'lodash-es'
                 }
