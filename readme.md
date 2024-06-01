@@ -62,7 +62,7 @@ console.log('jsonSchema = ', jsonSchema)
 
 ```
 ```javascript
-userJsonSchema = {"fields":{"id":{"hidden":true,"label":"ID","key":"id"},"createTime":{"label":"创建时间","key":"createTime"},"name":{"email":"123","label":"名称","key":"name"},"age":{"email":"sd","label":"年龄","hidden":false,"labelWidth":120,"key":"age"}},"perms":"sys-user","api":"sys/user","name":"SysUser"}
+jsonSchema = {"fields":{"id":{"hidden":true,"label":"ID","key":"id"},"createTime":{"hidden":true,"label":"创建时间","key":"createTime"},"name":{"test":"123","label":"名称","key":"name"},"age":{"test":"sd","test2":123,"label":"年龄","hidden":false,"labelWidth":120,"key":"age"}},"perms":"model-test","api":"model/test","name":"ModelTest"}
 ```
 
 ## @Axios 装饰器示例
