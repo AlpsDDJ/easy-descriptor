@@ -1,6 +1,6 @@
 {
   "name": "easy-descriptor",
-  "version": "1.0.2-beta.0",
+  "version": "1.0.2-beta.1",
   "type": "module",
   "files": [
     "dist"
@@ -13,17 +13,17 @@
     "push": "npm publish --registry https://registry.npmjs.org/",
     "push:beta": "npm publish --tag beta --registry https://registry.npmjs.org/"
   },
-  "types": "./dist/types/index.d.ts",
+  "types": "./dist/index.d.ts",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
   "exports": {
     ".": {
       "require": {
-        "types": "./dist/types/index.d.ts",
+        "types": "./dist/index.d.ts",
         "default": "./dist/index.umd.js"
       },
       "import": {
-        "types": "./dist/types/index.d.ts",
+        "types": "./dist/index.d.ts",
         "default": "./dist/index.es.js"
       },
       "default": "./dist/index.es.js"
