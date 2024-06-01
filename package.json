@@ -1,29 +1,32 @@
 {
   "name": "easy-descriptor",
-  "version": "1.0.1",
+  "version": "1.0.2-beta.0",
   "type": "module",
   "files": [
-    "dist/**/*.*"
+    "dist"
   ],
   "scripts": {
     "dev": "vite",
     "build": "vite build && tsc -p tsconfig.build.json",
-    "build:push": "vite build && tsc -p tsconfig.build.json && yalc publish --push"
+    "build:push": "vite build && tsc -p tsconfig.build.json && yalc publish --push",
+    "version": "npm version patch",
+    "push": "npm publish --registry https://registry.npmjs.org/",
+    "push:beta": "npm publish --tag beta --registry https://registry.npmjs.org/"
   },
-  "types": "./dist/main.d.ts",
-  "main": "./dist/index.umd.cjs",
-  "module": "./dist/index.js",
+  "types": "./dist/types/index.d.ts",
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.es.js",
   "exports": {
     ".": {
       "require": {
-        "types": "./dist/main.d.ts",
-        "default": "./dist/index.umd.cjs"
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/index.umd.js"
       },
       "import": {
-        "types": "./dist/main.d.ts",
-        "default": "./dist/index.js"
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/index.es.js"
       },
-      "default": "./dist/index.js"
+      "default": "./dist/index.es.js"
     }
   },
   "repository": {
@@ -43,7 +46,6 @@
   "devDependencies": {
     "@types/lodash-es": "^4.17.12",
     "lodash-es": "^4.17.21",
-    "rollup-plugin-copy": "^3.5.0",
     "typescript": "^5.4.5",
     "vite": "^5.2.10",
     "vite-plugin-dts": "^3.9.1"

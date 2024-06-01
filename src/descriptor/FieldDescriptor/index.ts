@@ -124,7 +124,7 @@ function createColunm<T extends EzBaseModel<T>>(key: DataKey, optionTemp: Partia
   }
 }
 
-function setFieldProperty<T extends EzBaseModel<T>>(constructor: BaseModelConstructor<T>, key: DataKey, property: PartialFieldOption<T>): void {
+export function setFieldProperty<T extends EzBaseModel<T>>(constructor: BaseModelConstructor<T>, key: DataKey, property: PartialFieldOption<T>): void {
   const state = getModelState(constructor)
   // @ts-ignore
   const props = state?.['fields']?.[key.toString()] || {} // 获取当前字段的属性，如果不存在则默认为空对象

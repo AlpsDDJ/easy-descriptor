@@ -18,3 +18,5 @@ export const Model = <T extends EzBaseModel<T>>(parmas?: DataKey | ModelParams<T
     return value as unknown as BaseModelConstructor<T>
   }
 }
+
+export {setModelState}

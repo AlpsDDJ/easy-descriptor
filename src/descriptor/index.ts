@@ -1,6 +1,6 @@
-import {Field} from './FieldDescriptor'
-import {Model} from './ModelDescriptor'
+import {Field, setFieldProperty} from './FieldDescriptor'
+import {Model, setModelState} from './ModelDescriptor'
 
 export {
-    Field, Model
+    Field, Model, setFieldProperty, setModelState
 }
