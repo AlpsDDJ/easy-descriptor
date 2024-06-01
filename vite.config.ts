@@ -13,6 +13,7 @@ export default defineConfig({
             formats: ['es', 'umd'],
             fileName: (format, entryName) => `${entryName}.${format}.js`,
         },
+        // sourcemap: true,
         rollupOptions: {
             external: ['lodash', 'lodash-es', 'axios'],
             output: {
