@@ -11,14 +11,14 @@ export default class IBaseModel<T extends IBaseModel<T> = IBaseModel<any>, TB ex
 
 export type EnumTypes<T extends string | number> = keyof { [k in T]: unknown }
 
-export declare type FormData<T extends IBaseModel<T>> = Record<string, unknown> & {
+export declare type IFormData<T extends IBaseModel<T>> = Record<string, unknown> & {
     [key in keyof T]?: T[key]
 }
 export declare type FormType = EnumTypes<FormTypeEnum>
 export declare type FormDataType = EnumTypes<FormDataTypeEnum>
 export declare type InputType = EnumTypes<InputTypeEnum>
 
-export type FieldAttrHandler = <T extends IBaseModel<T>, P = any>(formData: FormData<T>, formType?: FormType) => P
+export type FieldAttrHandler<P = any, T extends IBaseModel<T> = IBaseModel> = (formData: IFormData<T>, formType?: FormType) => P
 
 export type FieldHiddenType = boolean | ('list' | 'form' | 'query' | 'edit' | 'add' | 'view')[]
 export type FieldDisabledType = boolean | ('form' | 'edit' | 'add' | 'editTable')[]
@@ -33,9 +33,9 @@ export interface ExtFieldOption extends Record<string, any> {
     key?: DataKey
     label?: string
     hidden?: FieldHiddenType
-    hiddenHandler?: FieldAttrHandler
+    hiddenHandler?: FieldAttrHandler<boolean>
     disabled?: FieldDisabledType
-    disabledHandler?: FieldAttrHandler
+    disabledHandler?: FieldAttrHandler<boolean>
     dataType?: FormDataType
     inputType?: InputType
     inputProps?: Record<string, any>
@@ -75,11 +75,11 @@ export declare type EzModelPool = {
 export declare type DictDecoratorType = (dict?: string) => PropertyDecorator
 export declare type HiddenDecoratorType = (
     hiddenType?: FieldHiddenType,
-    hiddenHandler?: FieldAttrHandler
+    hiddenHandler?: FieldAttrHandler<boolean>
 ) => PropertyDecorator
 export declare type DisabledDecoratorType = (
     disabledType?: FieldDisabledType,
-    disabledHandler?: FieldAttrHandler
+    disabledHandler?: FieldAttrHandler<boolean>
 ) => PropertyDecorator
 export declare type DataTypeDecoratorType = (dataType?: FormDataType, inputType?: InputType) => PropertyDecorator
 
