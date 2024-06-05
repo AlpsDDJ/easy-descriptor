@@ -1,8 +1,8 @@
 import type {BaseModelConstructor, DataKey, ModelParams} from "../../types";
-import EzBaseModel from "../../types";
+import IBaseModel from "../../types";
 import {setModelState} from "../../hooks/useModelOptions";
 
-export const Model = <T extends EzBaseModel<T>>(parmas?: DataKey | ModelParams<T>) => {
+export const Model = <T extends IBaseModel<T>>(parmas?: DataKey | ModelParams<T>) => {
   return <Class extends BaseModelConstructor>(value: Class): BaseModelConstructor<T> => {
     if (!parmas) {
       parmas = value.name

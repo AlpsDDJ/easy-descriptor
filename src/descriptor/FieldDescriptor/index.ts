@@ -17,7 +17,7 @@ import type {
 import {FormDataTypeEnum, InputTypeEnum} from "../../enums";
 import { cloneDeep } from 'lodash-es'
 import { getModelState, setModelState } from '../../hooks/useModelOptions'
-import EzBaseModel from "../../types";
+import IBaseModel from "../../types";
 
 /**
  * 定义一个隐藏装饰器，用于标记对象属性是否隐藏以及如何处理隐藏状态。
@@ -115,7 +115,7 @@ const DataType: DataTypeDecoratorType = (dataType: FormDataType = FormDataTypeEn
  * @param optionTemp 列的部分字段选项，是一个泛型参数 `T` 的 `FieldOption` 的部分属性。
  * @returns 返回一个完整的 `FieldOption<T>` 对象，包含传入的 `optionTemp` 属性、`key` 作为键名和 `optionTemp.label` 作为标题。
  */
-function createColunm<T extends EzBaseModel<T>>(key: DataKey, optionTemp: PartialFieldOption<T>): Required<T>['$TB'] {
+function createColunm<T extends IBaseModel<T>>(key: DataKey, optionTemp: PartialFieldOption<T>): Required<T>['$TB'] {
   // 使用展开运算符将 `optionTemp` 的属性与默认的 `key` 和 `title` 属性合并
   return {
     ...optionTemp,
@@ -124,7 +124,7 @@ function createColunm<T extends EzBaseModel<T>>(key: DataKey, optionTemp: Partia
   }
 }
 
-export function setFieldProperty<T extends EzBaseModel<T>>(constructor: BaseModelConstructor<T>, key: DataKey, property: PartialFieldOption<T>): void {
+export function setFieldProperty<T extends IBaseModel<T>>(constructor: BaseModelConstructor<T>, key: DataKey, property: PartialFieldOption<T>): void {
   const state = getModelState(constructor)
   // @ts-ignore
   const props = state?.['fields']?.[key.toString()] || {} // 获取当前字段的属性，如果不存在则默认为空对象
@@ -133,7 +133,7 @@ export function setFieldProperty<T extends EzBaseModel<T>>(constructor: BaseMode
 }
 
 export const Field: FieldDecorator = (() => {
-  const fn: FieldDecorator = <T extends EzBaseModel<T>>(label?: string | PartialFieldOption<T>, option?: PartialFieldOption<T>) => {
+  const fn: FieldDecorator = <T extends IBaseModel<T>>(label?: string | PartialFieldOption<T>, option?: PartialFieldOption<T>) => {
     // 初始化一个临时的字段配置对象
     let optionTemp: FieldOption = cloneDeep(option || {})
 
