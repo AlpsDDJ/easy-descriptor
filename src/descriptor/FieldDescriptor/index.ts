@@ -115,7 +115,7 @@ const DataType: DataTypeDecoratorType = (dataType: FormDataType = FormDataTypeEn
  * @param optionTemp 列的部分字段选项，是一个泛型参数 `T` 的 `FieldOption` 的部分属性。
  * @returns 返回一个完整的 `FieldOption<T>` 对象，包含传入的 `optionTemp` 属性、`key` 作为键名和 `optionTemp.label` 作为标题。
  */
-function createColunm<T extends EzBaseModel<T>>(key: DataKey, optionTemp: PartialFieldOption<T>): T['$TB'] {
+function createColunm<T extends EzBaseModel<T>>(key: DataKey, optionTemp: PartialFieldOption<T>): Required<T>['$TB'] {
   // 使用展开运算符将 `optionTemp` 的属性与默认的 `key` 和 `title` 属性合并
   return {
     ...optionTemp,
@@ -138,8 +138,8 @@ export const Field: FieldDecorator = (() => {
     let optionTemp: FieldOption = cloneDeep(option || {})
 
     // 如果传入了booleanFlags，将其设置为true
-    if (option?.booleanFlags) {
-      option?.booleanFlags?.forEach((item: string): void => {
+    if (option && (option as any).booleanFlags) {
+      (option as any).booleanFlags?.forEach((item: string): void => {
         optionTemp[item] = true
       })
     }
@@ -156,7 +156,7 @@ export const Field: FieldDecorator = (() => {
       const constructor = target.constructor as BaseModelConstructor<T>
       // const state: EzModelOptions<T> = getModelState(constructor)
       // 根据配置创建字段定义
-      const colunm: FieldOption<T['$TB']> = createColunm(propertyKey, optionTemp)
+      const colunm: FieldOption<Required<T>['$TB']> = createColunm(propertyKey, optionTemp)
       // 将字段定义设置到目标对象的状态中
       setFieldProperty<T>(constructor, propertyKey, colunm)
     }

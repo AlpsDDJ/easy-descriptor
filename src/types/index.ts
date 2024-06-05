@@ -4,13 +4,8 @@ export type * from '../descriptor/AxiosDescriptor/types'
 
 export type DataKey = string | symbol
 
-export type IBaseModel<TB = any> = {
-    $TB: TB
-}
-
-
-export default class EzBaseModel<T extends EzBaseModel<T> = EzBaseModel<any>, TB extends ExtFieldOption = FieldOption> implements IBaseModel<FieldOption> {
-    declare $TB: TB
+export default class EzBaseModel<T extends EzBaseModel<T> = EzBaseModel<any>, TB extends ExtFieldOption = FieldOption> {
+    $TB?: TB
     declare static modelKey: DataKey
 }
 

@@ -2,7 +2,6 @@ import type {
     BaseModelConstructor,
     EzModelOptions,
     EzModelPool,
-    IBaseModel,
     ModelParams,
     TreeField
 } from '../types'
@@ -15,11 +14,11 @@ export const getEzModelPool = () => {
 }
 
 
-export const useModelOptions = <T extends EzBaseModel<T>>(instance: BaseModelConstructor<T>) => {
+export const useModelOptions = <T extends EzBaseModel<T>>(instance: BaseModelConstructor<T>): EzModelOptions<T> => {
     return EZ_MODEL_POOL[instance.modelKey] as EzModelOptions<T>
 }
 
-export const setModelState = <T extends IBaseModel>(constructor: BaseModelConstructor<T>, state: ModelParams<T>) => {
+export const setModelState = <T extends EzBaseModel>(constructor: BaseModelConstructor<T>, state: ModelParams<T>) => {
     const modelName = state.name || constructor.name
     const snakeCaseName: string = snakeCase(modelName)
     // @ts-ignore
@@ -51,6 +50,6 @@ export const setModelState = <T extends IBaseModel>(constructor: BaseModelConstr
     EZ_MODEL_POOL[mk] = assign(EZ_MODEL_POOL[mk] || {}, state)
 }
 
-export const getModelState = <T extends IBaseModel>(constructor: BaseModelConstructor<T>) => {
+export const getModelState = <T extends EzBaseModel>(constructor: BaseModelConstructor<T>) => {
     return EZ_MODEL_POOL[constructor.modelKey] as EzModelOptions<T>
 }
