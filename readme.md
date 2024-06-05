@@ -12,7 +12,7 @@ pnpm i easy-descriptor
 
 ```typescript
 import type {FieldOption} from "easy-descriptor";
-import {EzBaseModel, Field, Model, useModelOptions} from "easy-descriptor";
+import {IBaseModel, Field, Model, useModelOptions} from "easy-descriptor";
 
 /**
  * 定义一个带有自定义属性test的字段选项类型
@@ -31,7 +31,7 @@ interface ElFieldOptions extends FieldOption<TestFieldOptions> {
 /**
  * 基础模型类，继承自EzBaseModel，泛型T约束为BaseModel的子类型或BaseModel<any>
  */
-export class BaseModel<T extends BaseModel<T> = BaseModel<any>> extends EzBaseModel<T, ElFieldOptions> {
+export class BaseModel<T extends BaseModel<T> = BaseModel<any>> extends IBaseModel<T, ElFieldOptions> {
     @Field('ID')
     // 标记当前字段为隐藏字段
     @Field.Hidden()
