@@ -1,4 +1,4 @@
-import {AxiosDescriptorConfigConstructor, HttpRequest, HttpRequestParam} from "./types";
+import {AxiosDescriptorConfig, AxiosDescriptorConfigConstructor, HttpRequest, HttpRequestParam} from "./types";
 import axios, {AxiosInstance} from "axios";
 
 const AXIOS_INSTANCE_POOL: Record<string, AxiosInstance> = {}
@@ -38,13 +38,13 @@ export function httpRequest<T = any, P = any>(...[data, config = {}, axiosInstan
 
 }
 
-export const AxiosDescriptorBuilder = (name?: string) => {
-    return <Class extends AxiosDescriptorConfigConstructor>(value: Class): AxiosDescriptorConfigConstructor => {
+export const AxiosDescriptorConifg = <T extends AxiosDescriptorConfig = AxiosDescriptorConfig>(name?: string) => {
+    return <Class extends AxiosDescriptorConfigConstructor<T>>(value: Class): AxiosDescriptorConfigConstructor<T> => {
         const {http, ...axiosConfig} = new value()
         if (http) {
             AXIOS_INSTANCE_POOL[name || 'default'] = http
         } else {
-            axios.create(axiosConfig || {})
+            AXIOS_INSTANCE_POOL[name || 'default'] = axios.create(axiosConfig || {})
         }
         return value
     }

@@ -11,7 +11,7 @@ export default class IBaseModel<T extends IBaseModel<T> = IBaseModel<any>, TB ex
 
 export type EnumTypes<T extends string | number> = keyof { [k in T]: unknown }
 
-export declare type IFormData<T extends IBaseModel<T>> = Record<string, unknown> & {
+export declare type IFormData<T extends IBaseModel<T>> = Record<string, any> & {
     [key in keyof T]?: T[key]
 }
 export declare type FormType = EnumTypes<FormTypeEnum>

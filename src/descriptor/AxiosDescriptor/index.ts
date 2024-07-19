@@ -1,9 +1,9 @@
 import {AxiosDecorator} from "./types";
 import {AxiosInstance, AxiosRequestConfig} from "axios";
 import {cloneDeep} from "lodash-es";
-import {httpRequest, AxiosDescriptorBuilder} from "./request";
+import {httpRequest, AxiosDescriptorConifg} from "./request";
 
-const Axios: AxiosDecorator = (path?: string, axiosInstance?: string | AxiosInstance) => {
+const Api: AxiosDecorator = (path?: string, axiosInstance?: string | AxiosInstance) => {
     return (constructor) => {
         constructor.prototype.path = path || ''
         axiosInstance && (constructor.prototype.axiosInstance = axiosInstance)
@@ -75,4 +75,4 @@ const Delete = (url = '', config: AxiosRequestConfig = {}) => {
     return Http(httpConfig)
 }
 
-export { Axios, Http, Get, Post, Put, Delete, AxiosDescriptorBuilder }
+export { Api, Http, Get, Post, Put, Delete, AxiosDescriptorConifg }
