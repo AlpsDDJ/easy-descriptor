@@ -1,6 +1,6 @@
 {
   "name": "easy-descriptor",
-  "version": "1.1.2-beta.1",
+  "version": "1.1.2",
   "type": "module",
   "files": [
     "dist"
