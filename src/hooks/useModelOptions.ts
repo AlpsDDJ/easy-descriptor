@@ -43,8 +43,8 @@ export const setModelState = <T extends IBaseModel>(constructor: BaseModelConstr
     const baseModelKey = 'BaseModel'
     if (!constructor.modelKey) {
         constructor.modelKey = baseModelKey
-    } else if (constructor.modelKey === baseModelKey && constructor.name !== baseModelKey) {
-        constructor.modelKey = uniqueId(`${constructor.name}_`)
+    } else if (constructor.modelKey === baseModelKey && modelName !== baseModelKey) {
+        constructor.modelKey = uniqueId(`${modelName}_`)
     }
     const mk = constructor.modelKey
     EZ_MODEL_POOL[mk] = assign(EZ_MODEL_POOL[mk] || {}, state)
