@@ -61,11 +61,11 @@ const Dict: DictDecoratorType = (dict?: string): PropertyDecorator => {
     // 获取目标对象的状态
     const constructor = target.constructor as BaseModelConstructor
     // 定义字典渲染函数，该函数将根据行对象获取对应的字典值。
-    const dictRender = (row: any) => {
-      return row[`${propertyKey as string}_dict`]
-    }
+    // const dictRender = (row: any) => {
+    //   return row[`${propertyKey as string}_dict`]
+    // }
     // 设置字段属性，包括字典名称和渲染函数，以便在界面渲染时使用。
-    setFieldProperty(constructor, propertyKey, { dict: dict || (propertyKey as string), render: dictRender })
+    setFieldProperty(constructor, propertyKey, { dict: dict || (propertyKey as string) })
   }
 }
 
